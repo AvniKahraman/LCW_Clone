@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Ana sayfa"
+        android:id="@+id/home"
+        android:icon="@drawable/home1"/>
+    <item android:title="Katagoriler"
+        android:id="@+id/category"
+        android:icon="@drawable/category"/>
+    <item android:title="Sepetim"
+        android:id="@+id/card"
+        android:icon="@drawable/shoppingbag"/>
+    <item android:title="Favoriler"
+        android:id="@+id/favorite"
+        android:icon="@drawable/heart"/>
+    <item android:title="Profil"
+        android:id="@+id/profile"
+        android:icon="@drawable/user"/>
+</menu>
