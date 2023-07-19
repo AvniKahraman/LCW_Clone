@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         replaceFragment(new HomeFragment());
 
+        getSupportActionBar().hide();
+
         binding.bottomnavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
