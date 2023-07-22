@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp">
 
 
-    <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
+        android:id="@+id/ez"
         android:layout_width="350dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        tools:ignore="MissingConstraints"
+        android:clickable="true">
 
 
 
@@ -49,6 +54,8 @@
 
 
 
+
+
     </androidx.cardview.widget.CardView>
 
 
@@ -56,4 +63,4 @@
 
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

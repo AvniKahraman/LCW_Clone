@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/zil"
         android:layout_width="47dp"
         android:layout_height="45dp"
         android:src="@drawable/baseline_notifications_none_24" />
