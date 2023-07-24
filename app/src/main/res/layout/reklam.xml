@@ -11,6 +11,7 @@
 
     <RelativeLayout
         android:layout_width="100dp"
+        android:id="@+id/reklamImage"
         android:layout_height="100dp">
 
         <ImageView
@@ -20,7 +21,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tamam"

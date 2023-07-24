@@ -46,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                @SuppressLint("Range") String imageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_REKLAM_URL));
+                String imageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_REKLAM_URL));
                 imageUrlList.add(imageUrl);
             } while (cursor.moveToNext());
             cursor.close();

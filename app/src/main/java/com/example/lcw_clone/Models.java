@@ -3,11 +3,11 @@ package com.example.lcw_clone;
 public class Models {
 
     String bigBoy;
-    String textView;
+
     String tamam;
-    String ez;
+    String searchbar;
     String zil;
-    String scanner;
+
 
     public String getBigBoy() {
         return bigBoy;
@@ -17,13 +17,7 @@ public class Models {
         this.bigBoy = bigBoy;
     }
 
-    public String getTextView() {
-        return textView;
-    }
 
-    public void setTextView(String textView) {
-        this.textView = textView;
-    }
 
     public String getTamam() {
         return tamam;
@@ -33,13 +27,7 @@ public class Models {
         this.tamam = tamam;
     }
 
-    public String getEz() {
-        return ez;
-    }
 
-    public void setEz(String ez) {
-        this.ez = ez;
-    }
 
     public String getZil() {
         return zil;
@@ -49,12 +37,12 @@ public class Models {
         this.zil = zil;
     }
 
-    public String getScanner() {
-        return scanner;
+    public String getSearchbar() {
+        return searchbar;
     }
 
-    public void setScanner(String scanner) {
-        this.scanner = scanner;
+    public void setSearchbar(String searchbar) {
+        this.searchbar = searchbar;
     }
 
     public String getCamera() {
