@@ -13,8 +13,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "lcw_database.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "kücük_reklam";
-    private static final String COLUMN_ID = "id";
+    private static final String TABLE_NAME = "LCW_db_reklam";
+
+    private static final String COLUMN_ID = "ID";
     private static final String COLUMN_REKLAM_URL = "reklam_link";
 
     public DatabaseHelper(Context context) {
@@ -23,12 +24,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Bu kısmı koddan çıkarın.
+        String createTableQuery = "CREATE TABLE " + TABLE_NAME + " (" +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_REKLAM_URL + " TEXT)";
+        db.execSQL(createTableQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        // This method is not needed for now. You can remove it or add upgrade code here.
     }
 
     // Veri çekmek için bir metot
@@ -46,12 +50,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                String imageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_REKLAM_URL));
+                @SuppressLint("Range") String imageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_REKLAM_URL));
                 imageUrlList.add(imageUrl);
             } while (cursor.moveToNext());
             cursor.close();
         }
         return imageUrlList;
+    }
+
+    // DatabaseHelper sınıfı
+    @SuppressLint("Range")
+    public List<Models> getModelsList() {
+        List<Models> modelsList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Models model = new Models();
+                model.setBigBoy(cursor.getString(cursor.getColumnIndex(COLUMN_REKLAM_URL)));
+                modelsList.add(model);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return modelsList;
     }
 
 }
