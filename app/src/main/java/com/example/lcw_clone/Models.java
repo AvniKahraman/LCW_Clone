@@ -56,5 +56,7 @@ public class Models {
     String camera;
 
 
+    public void setReklamUrl(String reklamUrl) {
 
+    }
 }

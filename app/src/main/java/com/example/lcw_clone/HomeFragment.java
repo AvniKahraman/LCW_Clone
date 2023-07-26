@@ -16,7 +16,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private MultiLayoutAdapter adapter;
     private List<Models> dataList;
-    private DatabaseHelper databaseHelper;
+    private DBHelper dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,9 +26,9 @@ public class HomeFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.verticalRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        databaseHelper = new DatabaseHelper(getActivity());
+        dbHelper = new DBHelper(getActivity());
 
-        dataList = getDataFromDatabase(); // Verileri veritabanından çekiyoruz.
+        dataList = getDataFromDatabase();
 
         adapter = new MultiLayoutAdapter(dataList);
         recyclerView.setAdapter(adapter);
@@ -37,9 +37,11 @@ public class HomeFragment extends Fragment {
     }
 
     private List<Models> getDataFromDatabase() {
-        // Verileri DatabaseHelper'dan çekmek ve döndürmek için gerekli kodları burada yazabilirsiniz.
-        // Örneğin:
-        List<Models> modelsList = databaseHelper.getModelsList();
+
+        dbHelper.open();
+        List<Models> modelsList = dbHelper.getModelsList();
+        dbHelper.close();
+
         return modelsList;
     }
 }

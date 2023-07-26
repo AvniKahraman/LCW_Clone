@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-// ViewHolder sınıflarını burada tanımlayın ve verileri bağlayın.
+
 public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Models> dataList;
@@ -54,26 +54,21 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
 
         public void bind(Models model) {
-            // Reklam verisine göre resmi yükleyin.
-            // Glide, Picasso veya başka bir kütüphane kullanabilirsiniz.
+
         }
     }
-    // MultiLayoutAdapter sınıfı içinde
+
     class KocamanImageViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView bigBoyImageView;
 
         public KocamanImageViewHolder(@NonNull View itemView) {
             super(itemView);
-            bigBoyImageView = itemView.findViewById(R.id.bigBoy); // Buradaki your_image_view_id, kocamanimage.xml dosyanızdaki ImageView'ın id'si olmalı.
+            bigBoyImageView = itemView.findViewById(R.id.bigBoy);
         }
 
         public void bind(Models model) {
-            // bigBoy verisine göre ImageView'ı güncelleyin
-            // Örneğin: Glide veya Picasso kütüphaneleri ile resmi yükleyin.
-            // Glide.with(itemView).load(model.getBigBoy()).into(bigBoyImageView);
-            // veya
-            // Picasso.get().load(model.getBigBoy()).into(bigBoyImageView);
+
         }
     }
 
@@ -88,13 +83,10 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         View itemView;
         switch (viewType) {
             case VIEW_TYPE_SEARCH_RECYCLER:
-                // ViewHolder sınıfı burada oluşturun ve itemView'ı döndürün
                 break;
             case VIEW_TYPE_ZIL:
-                // ViewHolder sınıfı burada oluşturun ve itemView'ı döndürün
                 break;
             case VIEW_TYPE_REKLAM:
-                // ViewHolder sınıfı burada oluşturun ve itemView'ı döndürün
                 break;
             case VIEW_TYPE_KOCAMAN_IMAGE:
                 itemView = inflater.inflate(R.layout.kocamanimage, parent, false);
@@ -110,13 +102,10 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         Models model = dataList.get(position);
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_SEARCH_RECYCLER:
-                // SearchRecyclerViewHolder için verileri bağlayın
                 break;
             case VIEW_TYPE_ZIL:
-                // ZilViewHolder için verileri bağlayın
                 break;
             case VIEW_TYPE_REKLAM:
-                // ReklamViewHolder için verileri bağlayın
                 break;
             case VIEW_TYPE_KOCAMAN_IMAGE:
                 KocamanImageViewHolder kocamanImageViewHolder = (KocamanImageViewHolder) holder;
@@ -136,7 +125,6 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public int getItemViewType(int position) {
         Models model = dataList.get(position);
-        // Model nesnesine göre düzen türünü belirleyin.
         if (model.getSearchbar() != null) {
             return VIEW_TYPE_SEARCH_RECYCLER;
         } else if (model.getZil() != null) {
@@ -150,7 +138,6 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    // ViewHolder sınıflarını burada tanımlayın ve verileri bağlayın.
 
     class SearchRecyclerViewHolder extends RecyclerView.ViewHolder {
 
@@ -166,6 +153,4 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    // Diğer ViewHolder sınıflarını da aynı şekilde oluşturun ve onBindViewHolder yönteminde bağlayın.
-    // ...
 }
