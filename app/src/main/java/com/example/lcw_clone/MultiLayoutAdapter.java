@@ -26,6 +26,11 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private static final int VIEW_TYPE_REKLAM = 2;
     private static final int VIEW_TYPE_KOCAMAN_IMAGE = 3;
 
+    private void loadImage(String imagePath, ImageView imageView) {
+
+    }
+
+
     public MultiLayoutAdapter(List<Models> dataList) {
         this.dataList = dataList;
     }
@@ -57,7 +62,6 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         }
     }
-
     class KocamanImageViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView bigBoyImageView;
@@ -68,9 +72,11 @@ public class MultiLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
 
         public void bind(Models model) {
-
+            // Reklam resmini yükleyin (kendi loadImage metodunuza göre ayarlayın)
+            loadImage(model.getBigBoy(), bigBoyImageView);
         }
     }
+
 
 
 

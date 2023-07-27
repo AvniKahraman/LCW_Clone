@@ -1,5 +1,6 @@
 package com.example.lcw_clone;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -21,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         replaceFragment(new HomeFragment());
 
-        getSupportActionBar().hide();
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+
 
         binding.bottomnavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
