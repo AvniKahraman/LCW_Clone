@@ -1,3 +1,4 @@
+// DBHelper.java
 package com.example.lcw_clone;
 
 import android.content.ContentValues;
@@ -25,9 +26,9 @@ public class DBHelper {
     }
 
     // Veritabanına yeni bir veri ekleme
-    public void addReklam(String reklamUrl) {
+    public void addReklam(String reklam_url) {
         ContentValues values = new ContentValues();
-        values.put(DatabaseHelper.COLUMN_REKLAM_URL, reklamUrl);
+        values.put(DatabaseHelper.COLUMN_REKLAM_URL, reklam_url);
 
         database.insert(DatabaseHelper.TABLE_NAME, null, values);
     }
@@ -42,11 +43,10 @@ public class DBHelper {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
-                String reklamUrl = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REKLAM_URL));
-
+                String reklam_url = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REKLAM_URL));
 
                 Models model = new Models();
-                model.setReklamUrl(reklamUrl);
+                model.setReklamUrl(reklam_url);
 
                 modelsList.add(model);
             } while (cursor.moveToNext());
